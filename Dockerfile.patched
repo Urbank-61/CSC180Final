@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    apache2
+
+RUN apt-get update && apt-get install -y apache2-bin apache2-utils apache2
+
+EXPOSE 80
+
+CMD ["apachectl", "-D", "FOREGROUND"]
